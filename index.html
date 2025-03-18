@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurotherapy India</title>
+    
+    <!--online bootstrap link-->
+    <!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"-->
+
+    <!--offline bootstrap link-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 18px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ff7722;">
+        <div class="container">
+            <a class="navbar-brand" href="#">Neurotherapy India</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="treatmentsDropdown" role="button"
+                            data-bs-toggle="dropdown">Treatments</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#treatment1">Pain Relief</a></li>
+                            <li><a class="dropdown-item" href="#treatment2">Digestive Health</a></li>
+                            <li><a class="dropdown-item" href="#treatment3">Holistic Healing</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="eventsDropdown" role="button"
+                            data-bs-toggle="dropdown">Events</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#event1">Workshops</a></li>
+                            <li><a class="dropdown-item" href="#event2">Seminars</a></li>
+                            <li><a class="dropdown-item" href="#event3">Webinars</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#neuropathy">Neuropathy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/img1.jpg" class="d-block w-100" alt="Slide 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Welcome to Neurotherapy India</h1>
+                    <p>Healing through natural therapy</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/img2.jpg" class="d-block w-100" alt="Slide 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Effective & Safe Treatment</h1>
+                    <p>Without Medicines & Side Effects</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/img10.jpg" class="d-block w-100" alt="Slide 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Join Our Neurotherapy Courses</h1>
+                    <p>Learn & Master the Art of Healing</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+
+
+
+
+
+    <section class="benefits-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="benefit-box p-4">
+                        <i class="fas fa-capsules"></i>
+                        <h3>MEDICINE – LESS</h3>
+                        <p>No use of medicine, injections, or drugs in this treatment.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="benefit-box p-4">
+                        <i class="fas fa-hand-holding-medical"></i>
+                        <h3>PRESSURE THERAPY</h3>
+                        <p>Pressure is applied on different pain points to cure them.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="benefit-box p-4">
+                        <i class="fas fa-not-equal"></i>
+                        <h3>NO SIDE-EFFECTS</h3>
+                        <p>This treatment has no side effects as it doesn’t use drugs.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="benefit-box p-4">
+                        <i class="fas fa-stopwatch"></i>
+                        <h3>QUICK RELIEF</h3>
+                        <p>Within 2-3 sittings, you will start feeling better and relief will come quickly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <section class="container py-5">
+        <div class="row">
+            <!-- First Part: Image -->
+            <div class="col-md-4">
+                <img src="images/img2.webp" class="img-fluid" alt="First Image">
+            </div>
+            <!-- Second Part: Data with Read More Button -->
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                <h3>Discover the Benefits of Neurotherapy</h3>
+                <p>Experience a holistic approach to health and wellness through neurotherapy...</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptas ratione. Beatae minima,
+                    eligendi velit quo fugit quae perspiciatis sapiente sit eius libero illo architecto obcaecati quia
+                    deleniti magni? Tempore.</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+            <!-- Third Part: Another Image -->
+            <div class="col-md-4">
+                <img src="images/img6.jpg" class="img-fluid" alt="Second Image">
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="services" class="py-5 text-center">
+        <div class="container">
+            <h2 class="mb-5">Our Services</h2>
+            <div class="row justify-content-center">
+                <!-- Service 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="images/img3.jpg" class="card-img-top" alt="Stomach Problem">
+                        <div class="card-body">
+                            <h5 class="card-title">Stomach Problem</h5>
+                            <p class="card-text">Improve your digestion and overall gut health with specialized
+                                treatments.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="images/img30.jpg" class="card-img-top" alt="Knee Pain">
+                        <div class="card-body">
+                            <h5 class="card-title">Knee Pain</h5>
+                            <p class="card-text">Get relief from chronic knee pain through effective therapies.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="images/img31.webp" class="card-img-top" alt="Back Pain">
+                        <div class="card-body">
+                            <h5 class="card-title">Back Pain</h5>
+                            <p class="card-text">Experience relief from back pain with our advanced techniques.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="images/Cervical.jpg" class="card-img-top" alt="Cervical Pain">
+                        <div class="card-body">
+                            <h5 class="card-title">Cervical Pain</h5>
+                            <p class="card-text">Experience relief from Cervical Pain with our advanced techniques.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="images/Nabhi.jpg" class="card-img-top" alt="Nabhi Pain">
+                        <div class="card-body">
+                            <h5 class="card-title">Nabhi Problems</h5>
+                            <p class="card-text">Experience relief from Nabhi Problems with our advanced techniques.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="images/Shoulder.jpg" class="card-img-top" alt="Shoulder Pain">
+                        <div class="card-body">
+                            <h5 class="card-title">Shoulder pain</h5>
+                            <p class="card-text">Experience relief from Shoulder pain with our advanced techniques.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Blue Background -->
+    <section id="blue-section" class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Image -->
+                <div class="col-md-6">
+                    <img src="images/img40.jpg" alt="Person 1" class="img-fluid rounded">
+                </div>
+                <!-- Text Data -->
+                <div class="col-md-6">
+                    <h3>Dr. John Doe</h3>
+                    <h5>Ph.D. in Neurotherapy</h5>
+                    <p>Dr. John Doe is an experienced neurotherapist with over 20 years of practice in medicine-less
+                        treatment. His innovative techniques have transformed countless lives.</p>
+                    <a href="#" class="btn btn-light">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: White Background -->
+    <section id="white-section" class="py-5 bg-white">
+        <div class="text-center mb-4">
+            <p class="text-primary display-4 fw-bold">Doctor at Home</p>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="images/doctorathome.jpg" alt="Person 2" class="img-fluid rounded" style="height:400px;">
+                </div>
+                <!-- Text Data -->
+                <div class="col-md-6">
+
+                    <p>Dr. Jane Smith is a passionate advocate for natural healing methods. With a focus on holistic
+                        well-being, she has contributed immensely to the field of naturopathy.</p>
+
+                    <p>Dr. John Doe is an experienced neurotherapist with over 20 years of practice in medicine-less
+                        treatment. His innovative techniques have transformed countless lives.</p>
+
+
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+                <!-- Image -->
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section id="patient-testimonials" class="d-flex align-items-center" style="height: 80vh; background-color:#C76D4F ;">
+        <div class="container">
+            <h2 class="text-center text-light mb-5">What Patients Are Saying</h2>
+            <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-inner border rounded p-4"
+                    style="border: 3px solid #ffffff; height:350px; background: rgba(255, 255, 255, 0.1);">
+                    <!-- Testimonial 1 -->
+                    <div class="carousel-item active">
+                        <div class="container">
+                            <!-- Star Ratings -->
+                            <div class="text-center mb-3">
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                            </div>
+                        </div>
+                        <div class="text-center position-relative">
+                            <p class="h4 text-white">
+                                "Dr. Nawal Kishore's neurotherapy transformed my health entirely. My cholesterol levels
+                                dropped significantly without medication. Forever grateful!"
+                            </p>
+                            <p class="h4 text-white"    >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima reprehenderit laboriosam
+                                repellat praesentium iure temporibus cumque inventore natus qui, reiciendis optio
+                                doloribus recusandae soluta! Libero nemo nihil velit necessitatibus eius?</p>
+                            <h5 class="text-warning position-absolute w-100 text-center" style="top:200px;">-
+                                Jaswinder Walia</h5>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="carousel-item">
+                        <div class="container">
+                            <!-- Star Ratings -->
+                            <div class="text-center mb-3">
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                            </div>
+                        </div>
+                        <div class="text-center position-relative">
+                            <p class="h4 text-white">
+                                "The holistic healing methods helped me recover from chronic back pain. I feel
+                                rejuvenated and pain-free."
+                            </p>
+                            <h5 class="text-warning position-absolute w-100 text-center" style="top:200px;">-
+                                Ramesh Verma</h5>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="carousel-item">
+                        <div class="container">
+                            <!-- Star Ratings -->
+                            <div class="text-center mb-3">
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                                <i class="fas fa-star text-warning fs-3 mx-1"></i>
+                            </div>
+                        </div>
+                        <div class="text-center position-relative">
+                            <p class="h4 text-white">
+                                "I had digestive issues for years. After just three months of therapy, my health
+                                improved dramatically. Highly recommended!"
+                            </p>
+                            <h5 class="text-warning position-absolute w-100 text-center" style="top:200px;">-
+                                Sunita Sharma</h5>
+                        </div>
+                    </div>
+                </div>
+				 <!-- WhatsApp -->
+		<a href="https://wa.me/1234567890?text=Hello%20there!" class="whatsapp-button" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+        Chat on WhatsApp
+		</a>
+
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="0"
+                        class="active bg-warning"></button>
+                    <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="1"
+                        class="bg-warning"></button>
+                    <button type="button" data-bs-target="#testimonialsCarousel" data-bs-slide-to="2"
+                        class="bg-warning"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section id="about" class="container py-5">
+        <h2 class="text-center">About Us</h2>
+        <p class="text-center">Providing medicine-less treatment with effective neurotherapy techniques.</p>
+    </section>
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2025 Neurotherapy India | All Rights Reserved
+    </footer>
+
+
+    <!--online bootstrap js link -->
+    <!--script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"--><!--/script-->
+
+    
+    <!--offline bootstrap js link -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+</body>
+
+</html>
