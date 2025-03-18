@@ -1,0 +1,105 @@
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1020;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .carousel-item img {
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        body {
+            margin-top: 80px;
+        }
+
+        #services {
+            background: url('images/img1.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .service-card {
+            border: none;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 15px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card img {
+            height: 250px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        .row.justify-content-center {
+            display: flex;
+            justify-content: center;
+        }
+
+
+
+
+        
+
+
+
+
+        /* Section Styling */
+        .benefits-section {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+
+        /* Benefit Box */
+        .benefit-box {
+            background-color: #0077c8; /* Blue */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, background-color 0.3s;
+        }
+
+        .benefit-box:hover {
+            background-color: #b7cfe0; /* Darker blue */
+            transform: scale(1.05);
+        }
+
+        /* Icon Styling */
+        .benefit-box i {
+            font-size: 40px;
+            color: #ff7300; /* Orange */
+            margin-bottom: 10px;
+            transition: transform 0.5s ease-in-out; /* Smooth Rotation */
+        }
+
+        /* Rotate Icon on Hover */
+        .benefit-box:hover i {
+            transform: rotate(360deg);
+        }
+
+        .benefit-box h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .benefit-box p {
+            font-size: 14px;
+        }
+        
