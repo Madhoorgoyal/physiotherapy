@@ -19,43 +19,127 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
 </head>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const sidebar = document.getElementById('sidebarMenu');
+    const links = sidebar.querySelectorAll('a.nav-link[href^="#"]');
+
+    links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault(); // Stop default behavior
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        // Close offcanvas first
+        const offcanvas = bootstrap.Offcanvas.getInstance(sidebar);
+        if (offcanvas) {
+          offcanvas.hide();
+
+          // Scroll after offcanvas closes
+          sidebar.addEventListener('hidden.bs.offcanvas', function handler() {
+            targetElement?.scrollIntoView({ behavior: 'smooth' });
+            sidebar.removeEventListener('hidden.bs.offcanvas', handler); // Remove listener after run
+          });
+        } else {
+          // Fallback if no offcanvas (desktop)
+          targetElement?.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  });
+</script>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ff7722;">
-        <div class="container">
-            <a class="navbar-brand" href="#">Neurotherapy India</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="treatmentsDropdown" role="button"
-                            data-bs-toggle="dropdown">Treatments</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#treatment1">Pain Relief</a></li>
-                            <li><a class="dropdown-item" href="#treatment2">Digestive Health</a></li>
-                            <li><a class="dropdown-item" href="#treatment3">Holistic Healing</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="eventsDropdown" role="button"
-                            data-bs-toggle="dropdown">Events</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#event1">Workshops</a></li>
-                            <li><a class="dropdown-item" href="#event2">Seminars</a></li>
-                            <li><a class="dropdown-item" href="#event3">Webinars</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#neuropathy">Neuropathy</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ff7722;">
+  <div class="container">
+    <a class="navbar-brand" href="#">Neurotherapy India</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Desktop Nav -->
+    <div class="collapse navbar-collapse d-none d-lg-block">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Treatments</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#treatment1">Pain Relief</a></li>
+            <li><a class="dropdown-item" href="#treatment2">Digestive Health</a></li>
+            <li><a class="dropdown-item" href="#treatment3">Holistic Healing</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Events</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#event1">Workshops</a></li>
+            <li><a class="dropdown-item" href="#event2">Seminars</a></li>
+            <li><a class="dropdown-item" href="#event3">Webinars</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#neuropathy">Neuropathy</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Offcanvas Sidebar for Mobile -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu" style="width: 260px;">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+      <li><a class="nav-link" href="#about" data-bs-dismiss="offcanvas">About</a></li>
+      <li><a class="nav-link" href="#services" data-bs-dismiss="offcanvas">Services</a></li>
+      <li><a class="nav-link" href="#courses" data-bs-dismiss="offcanvas">Courses</a></li>
+
+      <!-- Treatments Collapsible -->
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#treatmentsMenu" role="button" aria-expanded="false">
+          Treatments
+        </a>
+        <div class="collapse" id="treatmentsMenu">
+          <ul class="list-unstyled ps-3">
+            <li><a class="nav-link" href="#treatment1" data-bs-dismiss="offcanvas">Pain Relief</a></li>
+            <li><a class="nav-link" href="#treatment2" data-bs-dismiss="offcanvas">Digestive Health</a></li>
+            <li><a class="nav-link" href="#treatment3" data-bs-dismiss="offcanvas">Holistic Healing</a></li>
+          </ul>
         </div>
-    </nav>
+      </li>
+
+      <!-- Events Collapsible -->
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#eventsMenu" role="button" aria-expanded="false">
+          Events
+        </a>
+        <div class="collapse" id="eventsMenu">
+          <ul class="list-unstyled ps-3">
+            <li><a class="nav-link" href="#event1" data-bs-dismiss="offcanvas">Workshops</a></li>
+            <li><a class="nav-link" href="#event2" data-bs-dismiss="offcanvas">Seminars</a></li>
+            <li><a class="nav-link" href="#event3" data-bs-dismiss="offcanvas">Webinars</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li><a class="nav-link" href="#neuropathy" data-bs-dismiss="offcanvas">Neuropathy</a></li>
+      <li><a class="nav-link" href="#contact" data-bs-dismiss="offcanvas">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+
 
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
         <div class="carousel-inner">
@@ -256,7 +340,7 @@ Neurotherapy is a complete system of healing, incorporating mechanical, psycholo
                     <h3>Dr. Sunil Kumar</h3>
                     <h5>Neurotherapist (Since 2004)</h5>
                     <p>Dr. Sunil Kumar is an experienced Neurotherapist, practicing since 2004. He holds a Bachelor's degree in Yogic Science & Neurotherapy, along with a Diploma in Ayurvedic Pharmacy (D-Pharma Ayurveda), combining ancient healing wisdom with modern therapeutic expertise.</p>
-                    <a href="#" class="btn btn-light">Learn More</a>
+               
                 </div>
             </div>
         </div>
@@ -335,10 +419,10 @@ Neurotherapy is a complete system of healing, incorporating mechanical, psycholo
                 </div>
 				<!-- Contact --->
 		
-		<a href="tel:+918968338107" class="contact-icon">📞 <span>Contact</span></a>
+		<a href="tel:+919872094423" class="contact-icon">📞 <span>Contact</span></a>
 				
 				 <!-- WhatsApp -->
-		<a href="https://wa.me/918968338107?text=Hello%20there!" class="whatsapp-button" target="_blank">
+		<a href="https://wa.me/919872094423?text=Hello%20there!" class="whatsapp-button" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
         Chat on WhatsApp
 		</a>
@@ -495,13 +579,17 @@ Neurotherapy is a complete system of healing, incorporating mechanical, psycholo
 
 
 
-<footer class="bg-dark text-white text-center py-4 mt-4">
+<footer class="bg-dark text-white text-center py-4 mt-4" style="height:300px;">
   <div class="container">
     <p class="mb-2">&copy; 2025 Neurotherapy India | All Rights Reserved</p>
 
     <div class="d-flex justify-content-center align-items-center flex-column">
      
       <img src="images/loc.jpg" alt="Location QR Code" width="160" height="160" style="border: 2px solid #fff; border-radius: 10px;">
+	<a href="https://www.google.com/maps/place/Guru+ji+Neurotherapy+wellness+centre,+Car+parking+area,+Mattaur+Rd,+inside+Sri+Satya+Narayan+mandir,+Mattaur,+Sector+70,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160071/@30.7020768,76.7137433,15z/data=!4m6!3m5!1s0x390fef49fa49d44b:0x8f8f221198412dd!8m2!3d30.7020768!4d76.7137433!16s%2Fg%2F11w299qmk4?utm_campaign=ml-ardl&g_ep=Eg1tbF8yMDI1MDcyMl8wIOC7DCoASAJQAQ%3D%3D "> <i class="fa-solid fa-location-arrow" 
+   style="color: white; font-size: 48px;  margin-top:20px; cursor:pointer;">
+</i> </a>
+
     </div>
   </div>
 </footer>
