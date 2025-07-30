@@ -36,28 +36,25 @@
 
 </head>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const sidebar = document.getElementById('sidebarMenu');
-    const links = sidebar.querySelectorAll('a.nav-link[href^="#"]');
+ document.addEventListener('DOMContentLoaded', function () {
+      const sidebar = document.getElementById('sidebarMenu');
 
-    links.forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault(); // Stop default behavior
-        const targetId = this.getAttribute('href');
+      sidebar.addEventListener('click', function (e) {
+        const link = e.target.closest('a.nav-link[href^="#"]');
+        if (!link) return;
+
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
         const targetElement = document.querySelector(targetId);
 
-        // Close offcanvas first
         const offcanvas = bootstrap.Offcanvas.getInstance(sidebar);
         if (offcanvas) {
           offcanvas.hide();
-
-          // Scroll after offcanvas closes
           sidebar.addEventListener('hidden.bs.offcanvas', function handler() {
             targetElement?.scrollIntoView({ behavior: 'smooth' });
-            sidebar.removeEventListener('hidden.bs.offcanvas', handler); // Remove listener after run
+            sidebar.removeEventListener('hidden.bs.offcanvas', handler);
           });
         } else {
-          // Fallback if no offcanvas (desktop)
           targetElement?.scrollIntoView({ behavior: 'smooth' });
         }
       });
@@ -66,98 +63,92 @@
 </script>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ff7722;">
-  <div class="container">
-    <a class="navbar-brand" href="#">Neurotherapy India</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ff7722;">
+    <div class="container">
+      <a class="navbar-brand" href="#">Neurotherapy India</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <!-- Desktop Nav -->
-    <div class="collapse navbar-collapse d-none d-lg-block">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+      <!-- Desktop Nav -->
+      <div class="collapse navbar-collapse d-none d-lg-block">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html #about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html #services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Treatments</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#treatment1">Pain Relief</a></li>
-            <li><a class="dropdown-item" href="#treatment2">Digestive Health</a></li>
-            <li><a class="dropdown-item" href="#treatment3">Holistic Healing</a></li>
-          </ul>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Treatments</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#treatment1">Pain Relief</a></li>
+              <li><a class="dropdown-item" href="#treatment2">Digestive Health</a></li>
+              <li><a class="dropdown-item" href="#treatment3">Holistic Healing</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Events</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#event1">Workshops</a></li>
+              <li><a class="dropdown-item" href="#event2">Seminars</a></li>
+              <li><a class="dropdown-item" href="#event3">Webinars</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="#neuropathy">Neuropathy</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Offcanvas Sidebar -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu" style="width: 260px;">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav">
+        <li><a class="nav-link" href="index.html #about">About</a></li>
+        <li><a class="nav-link" href="index.html #services">Services</a></li>
+        <li><a class="nav-link" href="courses.html">Courses</a></li>
+
+        <!-- Treatments Collapsible -->
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" href="#treatmentsMenu" role="button" aria-expanded="false" aria-controls="treatmentsMenu">
+            Treatments
+          </a>
+          <div class="collapse" id="treatmentsMenu">
+            <ul class="list-unstyled ps-3">
+              <li><a class="nav-link" href="#treatment1">Pain Relief</a></li>
+              <li><a class="nav-link" href="#treatment2">Digestive Health</a></li>
+              <li><a class="nav-link" href="#treatment3">Holistic Healing</a></li>
+            </ul>
+          </div>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Events</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#event1">Workshops</a></li>
-            <li><a class="dropdown-item" href="#event2">Seminars</a></li>
-            <li><a class="dropdown-item" href="#event3">Webinars</a></li>
-          </ul>
+        <!-- Events Collapsible -->
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" href="#eventsMenu" role="button" aria-expanded="false" aria-controls="eventsMenu">
+            Events
+          </a>
+          <div class="collapse" id="eventsMenu">
+            <ul class="list-unstyled ps-3">
+              <li><a class="nav-link" href="#event1">Workshops</a></li>
+              <li><a class="nav-link" href="#event2">Seminars</a></li>
+              <li><a class="nav-link" href="#event3">Webinars</a></li>
+            </ul>
+          </div>
         </li>
 
-        <li class="nav-item"><a class="nav-link" href="#neuropathy">Neuropathy</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li><a class="nav-link" href="#neuropathy">Neuropathy</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
     </div>
   </div>
-</nav>
-
-<!-- Offcanvas Sidebar for Mobile -->
-<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu" style="width: 260px;">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title">Menu</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-  </div>
-  <div class="offcanvas-body">
-    <ul class="navbar-nav">
-      <li><a class="nav-link" href="#about" data-bs-dismiss="offcanvas">About</a></li>
-      <li><a class="nav-link" href="#services" data-bs-dismiss="offcanvas">Services</a></li>
-      <li><a class="nav-link" href="#courses" data-bs-dismiss="offcanvas">Courses</a></li>
-
-      <!-- Treatments Collapsible -->
-      <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="#treatmentsMenu" role="button" aria-expanded="false">
-          Treatments
-        </a>
-        <div class="collapse" id="treatmentsMenu">
-          <ul class="list-unstyled ps-3">
-            <li><a class="nav-link" href="#treatment1" data-bs-dismiss="offcanvas">Pain Relief</a></li>
-            <li><a class="nav-link" href="#treatment2" data-bs-dismiss="offcanvas">Digestive Health</a></li>
-            <li><a class="nav-link" href="#treatment3" data-bs-dismiss="offcanvas">Holistic Healing</a></li>
-          </ul>
-        </div>
-      </li>
-
-      <!-- Events Collapsible -->
-      <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="#eventsMenu" role="button" aria-expanded="false">
-          Events
-        </a>
-        <div class="collapse" id="eventsMenu">
-          <ul class="list-unstyled ps-3">
-            <li><a class="nav-link" href="#event1" data-bs-dismiss="offcanvas">Workshops</a></li>
-            <li><a class="nav-link" href="#event2" data-bs-dismiss="offcanvas">Seminars</a></li>
-            <li><a class="nav-link" href="#event3" data-bs-dismiss="offcanvas">Webinars</a></li>
-          </ul>
-        </div>
-      </li>
-
-      <li><a class="nav-link" href="#neuropathy" data-bs-dismiss="offcanvas">Neuropathy</a></li>
-      <li><a class="nav-link" href="#contact" data-bs-dismiss="offcanvas">Contact</a></li>
-    </ul>
-  </div>
-</div>
 
 
-
-
-
-</head>
-
-<body>
 <!-- Hero Image Section -->
 <section class="hero-image position-relative text-center">
   <img src="images/courses.png" alt="Neurotherapy Courses Banner" class="img-fluid w-100" style="max-height: 450px; object-fit: cover; filter: brightness(85%);">
