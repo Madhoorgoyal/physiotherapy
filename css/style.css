@@ -277,3 +277,16 @@
     object-fit: contain; /* Shows full image without cropping */
   }
 }
+.modal-content {
+  border-radius: 1.5rem;
+  border: none;
+}
+
+.modal-body p {
+  color: #444;
+}
+
+.btn-warning:hover {
+  background-color: #e66400;
+  color: #fff;
+}
