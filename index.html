@@ -45,6 +45,31 @@
     });
   });
 </script>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    var myModal = new bootstrap.Modal(document.getElementById('courseModal'));
+    myModal.show();
+  });
+</script>
+
+<!-- Course Modal -->
+<div class="modal fade" id="courseModal" tabindex="-1" aria-labelledby="courseModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow-lg">
+      <div class="modal-header bg-warning text-dark border-0">
+        <h5 class="modal-title fw-bold" id="courseModalLabel">🎓 New Courses Available!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p class="fs-5">Explore our newly launched Neurotherapy courses designed for professionals and learners alike.</p>
+        <img src="images/courses.png" alt="Courses" class="img-fluid rounded-3 my-3" style="max-height: 200px;">
+        <a href="courses.html" class="btn btn-warning fw-bold px-4 py-2 rounded-pill shadow-sm">
+          Go to Courses <i class="fas fa-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <body>
    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ff7722;">
@@ -363,7 +388,7 @@ Neurotherapy is a complete system of healing, incorporating mechanical, psycholo
                         </div>
                         <div class="text-center position-relative">
                             <p class="h4 text-white">
-                                "Dr. Nawal Kishore's neurotherapy transformed my health entirely. My cholesterol levels
+                                "Sunil Kumar neurotherapy transformed my health entirely. My cholesterol levels
                                 dropped significantly without medication. Forever grateful!"
                             </p>
                           
